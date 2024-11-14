@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem De Livros</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/lista-livros.css">
+</head>
+<body onload="listarLivros()">
+    <header>
+        <nav>
+            <a href="lista-alunos.html">ALUNOS</a>
+            <a href="lista-livros.html">LIVROS</a>
+            <a href="#">EMPRÉSTIMOS</a>
+        </nav>
+    </header>
+    <div class="painel">
+        <div class="esquerda">
+            <div>
+                <a href="cadastro-livro.html">NOVO LIVRO</a>
+            </div>
+        </div>
+        <div class="meio">
+            <h1>LIVROS</h1>
+        </div>
+        <div class="direita"></div>
+    </div>
+    <div class="container-tabela">
+        <table id="tabelaLivro">
+            <thead>
+                <tr>
+                    <th>ID LIVRO</th>
+                    <th>TÍTULO</th>
+                    <th>AUTOR</th>
+                    <th>EDITORA</th>
+                    <th>ANO DE PUBLICAÇÃO</th>
+                    <th>ISBN</th>
+                    <th>QUANTIDADE TOTAL</th>
+                    <th>QUANTIDADE DISPONÍVEL</th>
+                    <th>VALOR DE AQUISIÇÃO</th>
+                    <th>STATUS DE EMPRÉSTIMO</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaLivroCorpo">
+            </tbody>
+        </table>
+    </div>
+    <script src="js/livro.js"></script>
+</body>
+</html>

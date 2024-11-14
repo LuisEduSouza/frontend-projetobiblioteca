@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Alunos</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/cadastro-alunos.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="lista-alunos.html">ALUNOS</a>
+            <a href="lista-livros.html">LIVROS</a>
+            <a href="#">EMPRÉSTIMOS</a>
+        </nav>
+    </header>
+    <h1>CADASTRO ALUNO</h1>
+    <div class="container-formulario">
+        <form action="">
+            <label for="nome">
+                Nome
+                <br>
+                <input type="text" name="input-nome-aluno" placeholder="Insira o nome do aluno" required>
+            </label>
+            <label for="sobrenome">
+                Sobrenome
+                <br>
+                <input type="text" name="input-sobrenome-aluno" placeholder="Insira o sobrenome do aluno" required>
+            </label>
+            <label for="data nascimento">
+                Data de nascimento
+                <br>
+                <input type="date" name="input-data-aluno" placeholder="Insira a data de nascimento do aluno" required>
+            </label>
+            <label for="endereco">
+                Endereco
+                <br>
+                <input type="text" name="input-endereco-aluno" placeholder="Insira o endereco do aluno" required>
+            </label>
+            <label for="email">
+                E-mail
+                <br>
+                <input type="text" name="input-email-aluno" placeholder="Insira o e-mail do aluno" required>
+            </label>
+            <label for="celular">
+                Celular
+                <br>
+                <input type="text" name="input-celular-aluno" placeholder="Insira o celular do aluno" required>
+            </label>
+
+            <input type="button" value="CADASTRAR" onclick="enviarFormulario()">
+        </form>
+    </div>
+    <script src="js/aluno.js"></script>
+</body>
+</html>

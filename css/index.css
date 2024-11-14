@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&display=swap');
+
+:root {
+    --cor-primaria: #FBB02D;
+    --bg-color: #FFFFFF;
+    --bg-form: #EFEFEF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+/* TÍTULO */
+h1 {
+    font-family: 'Lexend Exa';
+    text-align: center;
+    font-size: 36px;
+    color: black;
+    font-weight: bold;
+}
+
+.painel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 6rem;
+}
+
+div a {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+header {
+    width: 100%;
+    height: 10vh;
+    background-color: var(--cor-primaria); /* Azul escuro conforme o mockup */
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 50%;
+    height: 100%;
+
+    margin: auto auto;
+}
+
+a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--bg-color);
+    text-decoration: none;
+}
+
+a::selection {
+    background-color: red;
+}
+
+.parte-texto {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -250px;
+}
+
+.texto-livro{
+    display: flex;
+    flex-direction: column;
+}
+  
+.parte-livro {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.painel {
+    display: flex;
+    flex-direction: row;
+    margin-top: 215px;
+}
+
+.parte-texto div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    height: 50%;
+    width: 30%;
+
+    border-radius: 5px;
+}
+
+.parte-texto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.biblioteca-logo{
+    width: 650px;
+    height: 500px;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+.texto-central{
+    margin-top: 40px;
+}
+
+h3{
+    font-size: 1.4rem;
+}
+
+.livro_exemplo{
+    width: 300px;
+    height: 400px;
+    margin-right: -200px;
+}
