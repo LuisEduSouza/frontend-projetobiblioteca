@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listagem De Alunos</title>
+    <title>Listagem De Empréstimo</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="css/lista-alunos.css">
+    <link rel="stylesheet" href="css/lista-emprestimo.css">
 </head>
-<body onload="listarAlunos()">
+<body onload="listarEmprestimos()">
     <header>
         <nav>
             <a href="lista-alunos.html">ALUNOS</a>
@@ -18,33 +18,31 @@
     <div class="painel">
         <div class="esquerda">
             <div>
-                <a href="cadastro-alunos.html">NOVO ALUNO</a>
+                <a href="cadastro-emprestimos.html">NOVO LIVRO</a>
             </div>
         </div>
         <div class="meio">
-            <h1>ALUNOS</h1>
+            <h1>EMPRÉSTIMOS</h1>
         </div>
         <div class="direita"></div>
     </div>
     <div class="container-tabela">
-        <table id="tabelaAluno">
+        <table id="tabelaEmprestimo">
             <thead>
                 <tr>
-                    <th>ID ALUNO</th>
-                    <th>RA</th>
-                    <th>NOME</th>
-                    <th>SOBRENOME</th>
-                    <th>DATA DE NASCIMENTO</th>
-                    <th>ENDEREÇO</th>
-                    <th>EMAIL</th>
-                    <th>CELULAR</th>
+                    <th>ID EMPRESTIMO</th>
+                    <th>ALUNO</th>
+                    <th>LIVRO</th>
+                    <th>DATA DE EMPRÉSTIMO</th>
+                    <th>DATA DE DEVOLUÇÃO</th>
+                    <th>STATUS DO EMPRÉSTIMO</th>
                     <th>AÇÕES</th>
                 </tr>
             </thead>
-            <tbody id="tabelaAlunoCorpo">
+            <tbody id="tabelaEmprestimosCorpo">
             </tbody>
         </table>
     </div>
-    <script src="js/aluno.js"></script>
+    <script src="js/emprestimo.js"></script>
 </body>
 </html>
