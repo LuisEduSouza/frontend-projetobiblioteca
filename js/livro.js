@@ -96,8 +96,9 @@ function preencherTabela(livros) {
         row.appendChild(cellQuantDispo);
 
         const cellValorAquisicao = document.createElement('td');
-        cellValorAquisicao.textContent = livro.valorAquisicao; // Preenche com o Telefone do cliente
+        cellValorAquisicao.textContent = `R$ ${livro.valorAquisicao}`; 
         row.appendChild(cellValorAquisicao);
+
 
         const cellStatusEmprestimo = document.createElement('td');
         cellStatusEmprestimo.textContent = livro.statusLivroEmprestado; // Preenche com o Telefone do cliente
@@ -112,6 +113,7 @@ function preencherTabela(livros) {
         const iconExcluir = document.createElement('img'); 
         iconExcluir.src = 'assets/icon/trash-fill.svg'; 
         iconExcluir.alt = 'Ícone de excluir'; 
+        iconExcluir.addEventListener('click', () => excluirLivro(livro.idLivro));
         tdAcoes.appendChild(iconExcluir);
 
         row.appendChild(tdAcoes);
@@ -120,3 +122,22 @@ function preencherTabela(livros) {
         tabela.appendChild(row);
     });
 }
+
+async function excluirLivro(idLivro) {
+    const url = `http://localhost:3333/delete/livro/${idLivro}`;
+
+    try {
+        const response = await fetch(url, { method: 'DELETE' });
+
+        if (response.ok) {
+            alert('Livro removido com sucesso');
+            window.location.reload();
+        } else {
+            const error = await response.json();
+            alert(`Erro: ${error}`);
+        }
+    } catch (error) {
+        console.error('Erro na requisição:', error);
+        alert('Erro ao tentar excluir o livro.');
+    }
+}    

@@ -5,7 +5,7 @@ async function enviarFormulario(){
         "data_nascimento": document.querySelectorAll("input")[2].value,
         "endereco": document.querySelectorAll("input")[3].value,
         "email": document.querySelectorAll("input")[4].value,
-        "calular": document.querySelectorAll("input")[5].value
+        "celular": document.querySelectorAll("input")[5].value
     }
 
     try {
@@ -77,7 +77,7 @@ function preencherTabela(alunos) {
         row.appendChild(cellSobrenome);
 
         const cellDataNascimento = document.createElement('td');
-        cellDataNascimento.textContent = aluno.dataNascimento; // Preenche com o Telefone do cliente
+        cellDataNascimento.textContent = new Date(aluno.dataNascimento).toLocaleDateString('pt-BR');
         row.appendChild(cellDataNascimento);
 
         const cellEndereco = document.createElement('td');
@@ -92,7 +92,6 @@ function preencherTabela(alunos) {
         cellCelular.textContent = aluno.celular; // Preenche com o Telefone do cliente
         row.appendChild(cellCelular);
 
-        // Cria célula para ações com ícones
         const tdAcoes = document.createElement('td');
         const iconAtualizar = document.createElement('img'); 
         iconAtualizar.src = 'assets/icon/pencil-square.svg'; 
@@ -101,6 +100,7 @@ function preencherTabela(alunos) {
         const iconExcluir = document.createElement('img'); 
         iconExcluir.src = 'assets/icon/trash-fill.svg'; 
         iconExcluir.alt = 'Ícone de excluir'; 
+        iconExcluir.addEventListener('click', () => excluirAluno(aluno.idAluno));
         tdAcoes.appendChild(iconExcluir);
 
         row.appendChild(tdAcoes);
@@ -109,3 +109,25 @@ function preencherTabela(alunos) {
         tabela.appendChild(row);
     });
 }
+
+async function excluirAluno(idAluno) {
+    const url = `http://localhost:3333/delete/aluno/${idAluno}`;
+
+    try {
+        const response = await fetch(url, { method: 'DELETE' });
+
+        if (response.ok) {
+            alert('Aluno removido com sucesso');
+            window.location.reload();
+        } else {
+            const error = await response.json();
+            alert(`Erro: ${error}`);
+        }
+    } catch (error) {
+        console.error('Erro na requisição:', error);
+        alert('Erro ao tentar excluir o aluno.');
+    }
+}    
+
+
+

@@ -1,7 +1,6 @@
 async function listarEmprestimos() {
     try {
-        const respostaServidor = await fetch("http://localhost:3333/lista/emprestimos", { // Faz a requisição GET
-            method: "GET",
+        const respostaServidor = await fetch("http://localhost:3333/lista/emprestimos", { 
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -11,36 +10,35 @@ async function listarEmprestimos() {
             throw new Error("Erro ao buscar dados da lista de empréstimos");
         }
     
-        const emprestimos = await respostaServidor.json(); // Converte a resposta para JSON
-        preencherTabela(emprestimos); // Chama a função para preencher a tabela com os dados
+        const emprestimos = await respostaServidor.json(); 
+        preencherTabela(emprestimos); 
     } catch (error) {
         console.log(error);
         alert(`Erro ao se comunicar com o servidor. ${error}`);
     }
 }
 
-// Função para preencher a tabela com os dados recebidos
+
 function preencherTabela(emprestimos) {
     const tabela = document.getElementById('tabelaEmprestimosCorpo');
-    tabela.innerHTML = ''; // Limpa qualquer conteúdo existente na tabela
+    tabela.innerHTML = ''; 
 
-    // Itera sobre cada cliente no array de dados
+
     emprestimos.forEach(emprestimo => {
-        // Cria uma nova linha da tabela
+
         const row = document.createElement('tr');
 
-        // Cria e preenche cada célula da linha
         const cellIdEmprestimo = document.createElement('td');
-        cellIdEmprestimo.textContent = emprestimo.idEmprestimo; // Preenche com o ID do cliente
+        cellIdEmprestimo.textContent = emprestimo.idEmprestimo; 
         row.appendChild(cellIdEmprestimo);
 
         const cellIdAluno = document.createElement('td');
-        cellIdAluno.textContent = emprestimo.idAluno; // Preenche com o Nome do cliente
+        cellIdAluno.textContent = emprestimo.idAluno; 
         cellIdAluno.hidden = true;
         row.appendChild(cellIdAluno);
 
         const cellIdLivro = document.createElement('td');
-        cellIdLivro.textContent = emprestimo.idLivro; // Preenche com o Nome do cliente
+        cellIdLivro.textContent = emprestimo.idLivro; 
         cellIdLivro.hidden = true;
         row.appendChild(cellIdLivro);
 
@@ -54,18 +52,17 @@ function preencherTabela(emprestimos) {
         row.appendChild(cellTituloLivro);
 
         const cellDataEmprestimo = document.createElement('td');
-        cellDataEmprestimo.textContent = emprestimo.dataEmprestimo; // Preenche com o CPF do cliente
+        cellDataEmprestimo.textContent = new Date(emprestimo.dataEmprestimo).toLocaleDateString('pt-br');
         row.appendChild(cellDataEmprestimo);
 
         const cellDataDevolucao = document.createElement('td');
-        cellDataDevolucao.textContent = emprestimo.dataDevolucao; // Preenche com o CPF do cliente
+        cellDataDevolucao.textContent = new Date (emprestimo.dataDevolucao).toLocaleDateString('pt-br');
         row.appendChild(cellDataDevolucao);
 
         const cellStatus = document.createElement('td');
-        cellStatus.textContent = emprestimo.statusEmprestimo; // Preenche com o Telefone do cliente
+        cellStatus.textContent = emprestimo.statusEmprestimo;
         row.appendChild(cellStatus);
 
-        // Cria célula para ações com ícones
         const tdAcoes = document.createElement('td');
         const iconAtualizar = document.createElement('img'); 
         iconAtualizar.src = 'assets/icon/pencil-square.svg'; 
@@ -73,12 +70,31 @@ function preencherTabela(emprestimos) {
         tdAcoes.appendChild(iconAtualizar); 
         const iconExcluir = document.createElement('img'); 
         iconExcluir.src = 'assets/icon/trash-fill.svg'; 
-        iconExcluir.alt = 'Ícone de excluir'; 
+        iconExcluir.alt = 'Ícone de excluir';
+        iconExcluir.addEventListener('click', () => excluirEmprestimo(emprestimo.idEmprestimo)); 
         tdAcoes.appendChild(iconExcluir);
 
         row.appendChild(tdAcoes);
 
-        // Adiciona a linha preenchida à tabela
         tabela.appendChild(row);
     });
 }
+
+async function excluirEmprestimo(idEmprestimo) {
+    const url = `http://localhost:3333/delete/emprestimo/${idEmprestimo}`;
+
+    try {
+        const response = await fetch(url, { method: 'DELETE' });
+
+        if (response.ok) {
+            alert('Emprestimo removido com sucesso');
+            window.location.reload();
+        } else {
+            const error = await response.json();
+            alert(`Erro: ${error}`);
+        }
+    } catch (error) {
+        console.error('Erro na requisição:', error);
+        alert('Erro ao tentar excluir o emprestimo.');
+    }
+}    
