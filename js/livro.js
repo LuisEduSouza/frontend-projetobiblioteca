@@ -57,18 +57,18 @@ function preencherTabela(livros) {
     const tabela = document.getElementById('tabelaLivroCorpo');
     tabela.innerHTML = ''; // Limpa qualquer conteúdo existente na tabela
 
-    // Itera sobre cada cliente no array de dados
+    // Itera sobre cada livro no array de dados
     livros.forEach(livro => {
         // Cria uma nova linha da tabela
         const row = document.createElement('tr');
 
         // Cria e preenche cada célula da linha
         const cellId = document.createElement('td');
-        cellId.textContent = livro.idLivro; // Preenche com o ID do cliente
+        cellId.textContent = livro.idLivro; 
         row.appendChild(cellId);
 
         const cellTitulo = document.createElement('td');
-        cellTitulo.textContent = livro.titulo; // Preenche com o Nome do cliente
+        cellTitulo.textContent = livro.titulo; 
         row.appendChild(cellTitulo);
 
         const cellAutor = document.createElement('td');
@@ -76,23 +76,23 @@ function preencherTabela(livros) {
         row.appendChild(cellAutor); 
 
         const cellEditora = document.createElement('td');
-        cellEditora.textContent = livro.editora; // Preenche com o CPF do cliente
+        cellEditora.textContent = livro.editora; 
         row.appendChild(cellEditora);
 
         const cellAnoPublicacao = document.createElement('td');
-        cellAnoPublicacao.textContent = livro.anoPublicacao; // Preenche com o Telefone do cliente
+        cellAnoPublicacao.textContent = livro.anoPublicacao; 
         row.appendChild(cellAnoPublicacao);
 
         const cellIsbn = document.createElement('td');
-        cellIsbn.textContent = livro.isbn; // Preenche com o Telefone do cliente
+        cellIsbn.textContent = livro.isbn; 
         row.appendChild(cellIsbn);
 
         const cellQuantTotal = document.createElement('td');
-        cellQuantTotal.textContent = livro.quantTotal; // Preenche com o Telefone do cliente
+        cellQuantTotal.textContent = livro.quantTotal;
         row.appendChild(cellQuantTotal);
 
         const cellQuantDispo = document.createElement('td');
-        cellQuantDispo.textContent = livro.quantDisponivel; // Preenche com o Telefone do cliente
+        cellQuantDispo.textContent = livro.quantDisponivel; 
         row.appendChild(cellQuantDispo);
 
         const cellValorAquisicao = document.createElement('td');
@@ -101,7 +101,7 @@ function preencherTabela(livros) {
 
 
         const cellStatusEmprestimo = document.createElement('td');
-        cellStatusEmprestimo.textContent = livro.statusLivroEmprestado; // Preenche com o Telefone do cliente
+        cellStatusEmprestimo.textContent = livro.statusLivroEmprestado; 
         row.appendChild(cellStatusEmprestimo);
 
         // Cria célula para ações com ícones

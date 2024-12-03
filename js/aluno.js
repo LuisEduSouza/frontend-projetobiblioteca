@@ -54,26 +54,25 @@ function preencherTabela(alunos) {
     const tabela = document.getElementById('tabelaAlunoCorpo');
     tabela.innerHTML = ''; // Limpa qualquer conteúdo existente na tabela
 
-    // Itera sobre cada cliente no array de dados
+    // Itera sobre cada aluno no array de dados
     alunos.forEach(aluno => {
         // Cria uma nova linha da tabela
         const row = document.createElement('tr');
 
-        // Cria e preenche cada célula da linha
         const cellId = document.createElement('td');
-        cellId.textContent = aluno.idAluno; // Preenche com o ID do cliente
+        cellId.textContent = aluno.idAluno; 
         row.appendChild(cellId);
 
         const cellRa = document.createElement('td');
-        cellRa.textContent = aluno.ra; // Preenche com o Nome do cliente
+        cellRa.textContent = aluno.ra; 
         row.appendChild(cellRa);
 
         const cellNome = document.createElement('td');
-        cellNome.textContent = aluno.nome; // Preenche com o Nome do cliente
+        cellNome.textContent = aluno.nome; 
         row.appendChild(cellNome);
 
         const cellSobrenome = document.createElement('td');
-        cellSobrenome.textContent = aluno.sobrenome; // Preenche com o CPF do cliente
+        cellSobrenome.textContent = aluno.sobrenome; 
         row.appendChild(cellSobrenome);
 
         const cellDataNascimento = document.createElement('td');
@@ -81,15 +80,15 @@ function preencherTabela(alunos) {
         row.appendChild(cellDataNascimento);
 
         const cellEndereco = document.createElement('td');
-        cellEndereco.textContent = aluno.endereco; // Preenche com o Telefone do cliente
+        cellEndereco.textContent = aluno.endereco; 
         row.appendChild(cellEndereco);
 
         const cellEmail = document.createElement('td');
-        cellEmail.textContent = aluno.email; // Preenche com o Telefone do cliente
+        cellEmail.textContent = aluno.email; 
         row.appendChild(cellEmail);
 
         const cellCelular = document.createElement('td');
-        cellCelular.textContent = aluno.celular; // Preenche com o Telefone do cliente
+        cellCelular.textContent = aluno.celular; 
         row.appendChild(cellCelular);
 
         const tdAcoes = document.createElement('td');

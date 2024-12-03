@@ -6,6 +6,9 @@
     --cor-primaria: #FBB02D;
     --bg-color: #FFFFFF;
     --bg-form: #EFEFEF;
+    --cabecalho: #5B5B5B;
+    --linhas: #363636;
+    --bordas: #EFEFEF;
 }
 
 * {
@@ -79,12 +82,6 @@ a::selection {
     background-color: red;
 }
 
-:root {
-    --cabecalho: #5B5B5B;
-    --linhas: #363636;
-    --bordas: #EFEFEF;
-}
-
 .esquerda div {
     display: flex;
     align-items: center;
@@ -143,13 +140,16 @@ th, td {
 
 td img {
     filter: invert(0.9);
-    width: 15%;
+    width: 20%;
     margin: 0.4rem;
 }
 
 td img:hover {
     filter: invert(0);
-    width: 15%;
+    width: 20%;
     margin: 0.4rem;
 }
 
+img{
+    cursor: pointer;
+}

@@ -44,7 +44,7 @@ function preencherTabela(emprestimos) {
 
 
         const cellNomeAluno = document.createElement('td');
-        cellNomeAluno.textContent = emprestimo.nomeAluno;
+        cellNomeAluno.textContent = `${emprestimo.nomeAluno} ${emprestimo.sobrenomeAluno}`;
         row.appendChild(cellNomeAluno); 
 
         const cellTituloLivro = document.createElement('td');
@@ -67,6 +67,9 @@ function preencherTabela(emprestimos) {
         const iconAtualizar = document.createElement('img'); 
         iconAtualizar.src = 'assets/icon/pencil-square.svg'; 
         iconAtualizar.alt = 'Ícone de edição'; 
+        iconAtualizar.addEventListener('click', () => {
+            window.location.href = 'cadastro-emprestimos.html';
+        });        
         tdAcoes.appendChild(iconAtualizar); 
         const iconExcluir = document.createElement('img'); 
         iconExcluir.src = 'assets/icon/trash-fill.svg'; 
