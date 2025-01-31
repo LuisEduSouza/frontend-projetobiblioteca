@@ -2,7 +2,7 @@ async function enviarFormulario(){
     const alunoDTO = {
         "nome": document.querySelectorAll("input")[0].value,
         "sobrenome": document.querySelectorAll("input")[1].value,
-        "data_nascimento": document.querySelectorAll("input")[2].value,
+        "dataNascimento": document.querySelectorAll("input")[2].value,
         "endereco": document.querySelectorAll("input")[3].value,
         "email": document.querySelectorAll("input")[4].value,
         "celular": document.querySelectorAll("input")[5].value
